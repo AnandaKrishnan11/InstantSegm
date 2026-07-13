@@ -5,7 +5,7 @@
 
 The pipeline takes a single Sentinel-1 scene and:
 
-1. **Chips** it into tiles.
+1. **Chips** it into 512x512 tiles.
 2. **Segments** each tile with a trained DeepLab v3 model, labelling every pixel as water or not-water.
 3. **Stitches** the predictions back into one georeferenced raster covering the original footprint, preserving the geotransform.
 
@@ -99,7 +99,7 @@ docker run --rm \
   -v "$(pwd)/output":/data/output \
   waterseg \
   --source_path /data/input/img.tif \  #direct path of the scene
-  --save_path /data/output/
+  --save_path /data/output/ #output directory
 ```
 
 The water map appears at `./output/water_mask.tif`.
