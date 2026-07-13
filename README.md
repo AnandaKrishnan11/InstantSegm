@@ -1,4 +1,4 @@
-# InstantSegm: SAR Surface-Water Segmentation 
+# InstantSegm: Surface-Water Segmentation 
 ---
 
 ## What this does
