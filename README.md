@@ -6,16 +6,16 @@
 The pipeline takes a single Sentinel-1 scene and:
 
 1. **Chips** it into tiles.
-2. **Segments** each tile with a trained DeepLab v3 model, labelling every pixel as *water* or *not-water*.
+2. **Segments** each tile with a trained DeepLab v3 model, labelling every pixel as water or not-water.
 3. **Stitches** the predictions back into one georeferenced raster covering the original footprint, preserving the geotransform.
 
 The output is a water mask (`.tif`) from which total water-covered area can be read off.
 
 ## Model
 
-A DeepLab v3 semantic segmentation network, trained on the **Sen1Floods11** dataset. The trained weights are **baked into the Docker image**, so the container only ever does **inference** — it loads a fixed model and runs a new scene through it.
+A DeepLab v3 semantic segmentation network, trained on the **Sen1Floods11** dataset. The trained weights are baked into the Docker image, so the container only ever does inference it loads a fixed model and runs a new scene through it.
 
-Inference runs on **CPU** — no GPU required.
+Inference runs on **CPU** no GPU required.
 
 ## Tech stack
 
@@ -48,7 +48,7 @@ Deeplab/
 
 ## Prerequisites
 
-You need **Docker** installed. On Windows, the cleanest route is Docker Engine inside a WSL2 Ubuntu distribution (no Docker Desktop required):
+You need Docker installed. On Windows, the cleanest route is Docker Engine inside a WSL2 Ubuntu distribution (no Docker Desktop required):
 
 ```bash
 # inside a WSL2 Ubuntu shell
@@ -64,7 +64,7 @@ sudo service docker start
 docker run hello-world
 ```
 
-> On WSL2 the Docker daemon does not auto-start. If you ever see *"Cannot connect to the Docker daemon"*, run `sudo service docker start` again.
+> On WSL2 the Docker daemon does not auto-start. If you ever see "Cannot connect to the Docker daemon", run `sudo service docker start` again.
 
 On Linux/macOS, install Docker the usual way for your platform.
 
@@ -87,7 +87,7 @@ The first build takes a few minutes (it downloads Python, PyTorch, and rasterio)
 
 ## Run
 
-The container is sealed off from your filesystem, so you connect an **input** folder and an **output** folder using `-v` volume mounts. Using `$(pwd)` (your current folder) keeps the command working on any machine — no absolute paths to edit.
+The container is sealed off from your filesystem, so you connect an input folder and an output folder using `-v` volume mounts. Using `$(pwd)` (your current folder) keeps the command working on any machine — no absolute paths to edit.
 
 From the project root:
 
@@ -105,11 +105,11 @@ docker run --rm \
   --save_path /data/output/
 ```
 
-The water map appears at `./output/mosaic.tif`.
+The water map appears at `./output/water_mask.tif`.
 
 ### Windows PowerShell note
 
-The `$(pwd)` syntax is Bash (WSL / Linux / macOS). The simplest approach is to run everything **inside WSL**. If you must run from PowerShell, use `${PWD}`:
+The `$(pwd)` syntax is Bash (WSL / Linux / macOS). The simplest approach is to run everything inside WSL. If you must run from PowerShell, use `${PWD}`:
 
 ```powershell
 docker run --rm -v "${PWD}/input:/data/input" -v "${PWD}/output:/data/output" waterseg --source_path /data/input --save_path /data/output/
@@ -119,7 +119,7 @@ docker run --rm -v "${PWD}/input:/data/input" -v "${PWD}/output:/data/output" wa
 
 ## Reproducibility notes
 
-- The container uses **Python 3.12** internally, independent of whatever Python is on the host.
+- The container uses Python 3.12 internally, independent of whatever Python is on the host.
 - PyTorch and torchvision are pinned to the **CPU** build to keep the image small.
 - Dependencies are pinned in `requirements.txt`.
 - The trained weights are committed inside the image, so no external download is needed at run time.
