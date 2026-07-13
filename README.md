@@ -63,9 +63,6 @@ Start the daemon and verify:
 sudo service docker start
 docker run hello-world
 ```
-
-> On WSL2 the Docker daemon does not auto-start. If you ever see "Cannot connect to the Docker daemon", run `sudo service docker start` again.
-
 On Linux/macOS, install Docker the usual way for your platform.
 
 ---
