@@ -99,7 +99,7 @@ docker run --rm \
   -v "$(pwd)/output":/data/output \
   waterseg \
   --source_path /data/input/img.tif \  #direct path of the scene
-  --save_path /data/output/ #output directory
+  --save_path /data/output/water_mask.tif #output path with .tif extension
 ```
 
 The water map appears at `./output/water_mask.tif`.
