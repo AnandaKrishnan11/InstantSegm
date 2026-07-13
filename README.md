@@ -84,7 +84,7 @@ The first build takes a few minutes (it downloads Python, PyTorch, and rasterio)
 
 ## Run
 
-The container is sealed off from your filesystem, so you connect an input folder and an output folder using `-v` volume mounts. Using `$(pwd)` (your current folder) keeps the command working on any machine — no absolute paths to edit.
+The container is sealed off from your filesystem, so you connect an input folder and an output folder using `-v` volume mounts. Using `$(pwd)` (your current folder) keeps the command working on any machine no absolute paths to edit.
 
 From the project root:
 
