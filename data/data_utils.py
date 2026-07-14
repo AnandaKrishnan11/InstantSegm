@@ -39,11 +39,6 @@ def chipImage(img_path, chip_size=512, mask_path=None):
 
 
 def mosaicChips(preds, meta, save_path):
-    '''
-    takes the predicted patches (in the same order as chipImage returned them)
-    and the meta from chipImage, pastes them back onto the original grid and
-    writes the full image in the same coordinate system. no disk chips involved.
-    '''
     profile = meta["profile"]
     H, W = meta["height"], meta["width"]
     windows = meta["windows"]
