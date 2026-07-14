@@ -1,0 +1,1 @@
+Place the weight (.pt) file in this directory: checkpoint/best_weight.pt before docker build
