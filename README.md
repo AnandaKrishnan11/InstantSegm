@@ -5,15 +5,15 @@
 
 The pipeline takes a single Sentinel-1 scene and:
 
-1. **Chips** it into 512x512 tiles.
-2. **Segments** each tile with a trained DeepLab v3 model, labelling every pixel as water or not-water.
+1. **Chips** it into tiles.
+2. **Segments** each tile with a trained DeepLabv3 model, labelling every pixel as water or not-water.
 3. **Stitches** the predictions back into one georeferenced raster covering the original footprint, preserving the geotransform.
 
 The output is a water mask (`.tif`) from which total water-covered area can be read off.
 
 ## Model
 
-A DeepLab v3 semantic segmentation network, trained on the **Sen1Floods11** dataset. The trained weights are baked into the Docker image, so the container only ever does inference it loads a fixed model and runs a new scene through it.
+A DeepLabv3 semantic segmentation network, trained on the **Cloud to Street Microsoft (C2S-MS) Global Flood** dataset. The trained weights are baked into the Docker image, so the container only ever does inference it loads a fixed model and runs a new scene through it.
 
 Inference runs on **CPU** no GPU required.
 
