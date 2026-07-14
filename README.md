@@ -107,14 +107,6 @@ docker run --rm \
 
 The water map appears at `./output/water_mask.tif`.
 
-### Windows PowerShell note
-
-The `$(pwd)` syntax is Bash (WSL / Linux / macOS). The simplest approach is to run everything inside WSL. If you must run from PowerShell, use `${PWD}`:
-
-```powershell
-docker run --rm -v "${PWD}/input:/data/input" -v "${PWD}/output:/data/output" waterseg --source_path /data/input --save_path /data/output/
-```
-
 ---
 
 ## Reproducibility notes
@@ -123,7 +115,3 @@ docker run --rm -v "${PWD}/input:/data/input" -v "${PWD}/output:/data/output" wa
 - PyTorch and torchvision are pinned to the **CPU** build to keep the image small.
 - Dependencies are pinned in `requirements.txt`.
 - The trained weights are committed inside the image, so no external download is needed at run time.
-
-## Notes
-
-Generative AI was used for debugging;
