@@ -51,24 +51,7 @@ Deeplab/
 
 ## Prerequisites
 
-You need Docker installed. On Windows, the cleanest route is Docker Engine inside a WSL2 Ubuntu distribution (no Docker Desktop required):
-
-```bash
-# inside a WSL2 Ubuntu shell
-sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-sudo usermod -aG docker $USER   # then close and reopen the shell
-```
-
-Start the daemon and verify:
-
-```bash
-sudo service docker start
-docker run hello-world
-```
-On Linux/macOS, install Docker the usual way for your platform.
-
----
+You need Docker installed. 
 
 ## Build
 
