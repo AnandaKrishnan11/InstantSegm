@@ -45,8 +45,8 @@ Deeplab/
 ```
 
 ---
-> ⚠️ **Model weights required before building.**
-> **Download them here: [ADD YOUR LINK]** and place the file at `checkpoint/best_weight.pt`
+> ⚠️ **Model weights required before building.
+> **Download them here: https://github.com/AnandaKrishnan11/InstantSegm/releases/tag/v1.0 and place the file at `checkpoint/best_weight.pt`
 > **before** running `docker build`.
 
 ## Prerequisites
