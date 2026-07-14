@@ -45,6 +45,11 @@ Deeplab/
 ```
 
 ---
+> ⚠️ **Model weights required before building.**
+> The trained weights (`best_weight.pt`) are too large for this repository and are hosted separately.
+> **Download them here: [ADD YOUR LINK]** and place the file at `checkpoint/best_weight.pt`
+> **before** running `docker build`. The build bakes the weights into the image, so they must
+> be present at build time — otherwise inference will fail at run time with a missing-file error.
 
 ## Prerequisites
 
