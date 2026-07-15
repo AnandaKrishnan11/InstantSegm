@@ -8,7 +8,7 @@ from engine import test_all
 
 def main(args):
     
-    test_loader = createdataset(args.source_path)
+    test_loader = createdataset(img_path= args.source_path, mask_path= args.mask_path)
     meta = test_loader.dataset.meta
     device = "cpu"
     model = create_model()
@@ -22,7 +22,8 @@ def main(args):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--source_path", type=str, required=True, help='Source path of the scene')
+    parser.add_argument("--source_path", type=str, required=True, help='Source path to the s1 scene')
+    parser.add_argument("--mask_path", type=str, required=False, help='Source path to the mask')
     parser.add_argument("--save_path", type=str, required=True, help='full path to the water mask with file extension')
     return parser.parse_args()
 
