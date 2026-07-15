@@ -24,7 +24,7 @@ class CustomSegmentationModel(nn.Module):
         return x
     
 
-def create_model(num_class=1, in_channels=3):
+def create_model(num_class=1, in_channels=2):
 
     ori_model = deeplabv3_resnet50(weights=DeepLabV3_ResNet50_Weights.DEFAULT, weights_backbone=ResNet50_Weights.IMAGENET1K_V1)
     
