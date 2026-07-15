@@ -1,4 +1,3 @@
-from tqdm import tqdm
 import torch
 from torch import nn
 
@@ -8,7 +7,7 @@ def test_all(model, metric, test_loader, device, num_class):
     out_list = []
     has_labels = test_loader.dataset.masks is not None
 
-    for i, data in tqdm(enumerate(test_loader)):
+    for i, data in enumerate(test_loader):
         x, y = data
         x = x.to(device)
         out = model(x, with_probs=True)
