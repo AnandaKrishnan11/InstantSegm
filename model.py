@@ -7,7 +7,7 @@ from torchvision.models.segmentation.deeplabv3 import DeepLabV3_ResNet50_Weights
 
 
 class CustomSegmentationModel(nn.Module):
-    def __init__(self, backbone, classifier, num_classes=1):
+    def __init__(self, backbone, classifier, num_classes=2):
         super().__init__()
         self.backbone = backbone
         self.classifier = classifier
@@ -24,7 +24,7 @@ class CustomSegmentationModel(nn.Module):
         return x
     
 
-def create_model(num_class=1, in_channels=2):
+def create_model(num_class=2, in_channels=2):
 
     ori_model = deeplabv3_resnet50(weights=DeepLabV3_ResNet50_Weights.DEFAULT, weights_backbone=ResNet50_Weights.IMAGENET1K_V1)
     
