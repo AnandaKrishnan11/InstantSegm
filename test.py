@@ -17,7 +17,9 @@ def main(args):
 
     metric = Accuracy()
     test_metric,out = test_all(model=model, metric=metric, test_loader=test_loader, device=device, num_class=2)
-    print(test_metric)
+    if test_metric:
+        print(f"[IOU]--{test_metric['iou']}")
+        print(f"[F1]--{test_metric['f1']}")
     mosaicChips(out,meta,save_path=args.save_path)
 
 def parse_args():
