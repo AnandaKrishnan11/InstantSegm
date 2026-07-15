@@ -41,5 +41,5 @@ class ChipDataset(Dataset):
 def createdataset(img_path, mask_path=None):
     dataset = ChipDataset(img_path, mask_path=mask_path)
     loader = DataLoader(dataset, batch_size=1, num_workers=4,
-                        pin_memory=True, drop_last=False, shuffle=False)
+                        pin_memory=False, drop_last=False, shuffle=False)
     return loader
