@@ -16,7 +16,7 @@ def main(args):
     model = model.to(device=device)
 
     metric = Accuracy()
-    test_metric,out = test_all(model=model, metric=metric, test_loader=test_loader, device=device, num_class=1)
+    test_metric,out = test_all(model=model, metric=metric, test_loader=test_loader, device=device, num_class=2)
     print(test_metric)
     mosaicChips(out,meta,save_path=args.save_path)
 
