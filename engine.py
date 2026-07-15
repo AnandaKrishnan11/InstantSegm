@@ -15,7 +15,7 @@ def test_all(model, metric, test_loader, device, num_class):
         if num_class == 1:
             out = (out >= 0.5).long().squeeze(1)  
         else:
-            out = torch.argmax(out, dim=1)         
+            out = torch.argmax(out, dim=1).to(torch.uint8)         
 
         out_list.append(out.squeeze(0).cpu().numpy()) 
 
