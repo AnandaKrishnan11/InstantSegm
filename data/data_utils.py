@@ -58,6 +58,6 @@ def mosaicChips(preds, meta, save_path):
                      "count": bands,
                      "dtype": canvas.dtype})
     os.makedirs(save_path, exist_ok=True)
-    print(f"Mosaic image is saved in {save_path} as water_mask.tif")
     with rio.open(save_path, "w", **out_meta) as dst:
         dst.write(canvas)
+    print(f"Mosaic image is saved in {save_path}")
